@@ -1,18 +1,21 @@
+<script setup>
+import { BACKEND_URL } from '@/config.js'; // Import BACKEND URL
+</script>
 <template>
   <a :href="'/products/' + product.url" class="product">
     <div class="preview">
       <!-- TODO: Check -->
       <!-- <img :src="apiUrl + '/storage/uploads/images/products/product-preview.jpg'" alt=""> -->
-      <img :src="'/images/products/product-preview.jpg'" alt="" />
+      <img :src="`${BACKEND_URL}${product.images[0].category.url}/${product.images[0].file_name}`" v-if="product.images"/>
+      <img :src="'/images/products/product-preview.jpg'" alt="" v-else/>
     </div>
     <div class="title">
       <p>{{ product.title }}</p>
     </div>
     <div class="details">
       <div class="detail-item">
-        <!-- TODO: Check -->
-        <!-- <img :src="apiUrl + '/storage/uploads/images/platforms/microsoft.svg'"> -->
-        <img :src="'/images/platforms/steam.svg'" />
+        <img :src="`${BACKEND_URL}${product.platform.image.category.url}/${product.platform.image.file_name}`" v-if="product.platform.image"/>
+        <img :src="'/images/platforms/default.svg'" v-else/>
         <p>{{ product.platform.title }}</p>
       </div>
     </div>
@@ -22,7 +25,7 @@
         ><p class="old-price">{{ product.old_price }}₽</p></sub
       >
       <div v-if="product.old_price != null" class="discount">
-        <p>70%</p>
+        <p>{{ calculateDiscount(product.price, product.old_price) }}%</p>
       </div>
     </div>
   </a>
@@ -38,7 +41,15 @@ export default {
   },
   data() {
     return {
-      //apiUrl: process.env.VUE_APP_API_URL,
+    }
+  },
+  methods: {
+    calculateDiscount(price, oldPrice) {
+      if (oldPrice <= 0) {
+        throw new Error('Old price must be greater than zero');
+      }
+      const discount = ((oldPrice - price) / oldPrice) * 100;
+      return Math.round(discount);
     }
   },
 }
