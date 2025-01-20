@@ -1,6 +1,8 @@
 <script setup>
 import PrimaryButton from '@/components/ui/buttons/PrimaryButton.vue'
 import ProductCard from '@/components/ui/cards/ProductCard.vue'
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { API_BASE_URL, BACKEND_URL } from '@/config.js'; // Import API URL
 </script>
 <template>
   <div class="products-list">
@@ -19,9 +21,9 @@ import ProductCard from '@/components/ui/cards/ProductCard.vue'
 export default {
   data() {
     return {
-      currentPageIndex: 1,
+      currentPage: 1,
+      pageCount: 12,
       localProducts: [],
-      //apiUrl: process.env.VUE_APP_API_URL,
     }
   },
   mounted() {
@@ -88,7 +90,7 @@ export default {
   methods: {
     async parseProducts() {
       try {
-        const response = await fetch(this.apiUrl + '/api/v1/products', {
+        const response = await fetch(`${API_BASE_URL}/products?perPage=${this.pageCount}&page=${this.currentPage}`, {
           method: 'GET',
           headers: {
             'Content-type': 'application/json; charset=UTF-8',
@@ -96,14 +98,15 @@ export default {
         })
         const json = await response.json()
         this.addProducts(json.data)
+        this.currentPage++
       } catch (error) {
         console.error('Error fetching products:', error)
       }
     },
     addProducts(products) {
-      if (products && products.items) {
-        for (let i = 0; i < products.items.length; i++) {
-          this.localProducts.push(products.items[i])
+      if (products.length > 0) {
+        for (let i = 0; i < products.length; i++) {
+          this.localProducts.push(products[i])
         }
       } else {
         console.error('Products data is invalid or items are undefined:', products)
