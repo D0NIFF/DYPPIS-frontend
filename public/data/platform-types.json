@@ -1,0 +1,56 @@
+{
+  "data": [
+    {
+      "slug": "games",
+      "title": "{\"de\": \"Spiele\", \"en\": \"Games\", \"es\": \"Juegos\", \"fr\": \"Jeux\", \"it\": \"Giochi\", \"ru\": \"Игры\"}",
+      "image": {
+        "id": 16236,
+        "file_name": "games-icon.svg",
+        "file_type": "image/svg",
+        "file_size": 2096,
+        "category_id": "36295c29-d7da-41e7-97df-40ffde284a93",
+        "created_at": null,
+        "updated_at": null
+      }
+    },
+    {
+      "slug": "software",
+      "title": "{\"de\": \"Software\", \"en\": \"Software\", \"es\": \"Software\", \"fr\": \"Logiciel\", \"it\": \"Software\", \"ru\": \"Программное обеспечение\"}",
+      "image": {
+        "id": 26236,
+        "file_name": "software-icon.svg",
+        "file_type": "image/svg",
+        "file_size": 2096,
+        "category_id": "36295c29-d7da-41e7-97df-40ffde284a93",
+        "created_at": null,
+        "updated_at": null
+      }
+    },
+    {
+      "slug": "social-apps",
+      "title": "{\"de\": \"Soziale Netzwerke und Apps\", \"en\": \"Social networks & apps\", \"es\": \"Redes sociales y aplicaciones\", \"fr\": \"Réseaux sociaux et apps\", \"it\": \"Reti sociali e app\", \"ru\": \"Соцсети и сервисы\"}",
+      "image": {
+        "id": 36236,
+        "file_name": "social-apps-icon.svg",
+        "file_type": "image/svg",
+        "file_size": 2096,
+        "category_id": "36295c29-d7da-41e7-97df-40ffde284a93",
+        "created_at": null,
+        "updated_at": null
+      }
+    },
+    {
+      "slug": "mobile-games",
+      "title": "{\"de\": \"Mobile Spiele\", \"en\": \"Mobile games\", \"es\": \"Juegos para móviles\", \"fr\": \"Jeux mobiles\", \"it\": \"Giochi per cellulari\", \"ru\": \"Мобильные игры\"}",
+      "image": {
+        "id": 46236,
+        "file_name": "mobile-games-icon.svg",
+        "file_type": "image/svg",
+        "file_size": 2096,
+        "category_id": "36295c29-d7da-41e7-97df-40ffde284a93",
+        "created_at": null,
+        "updated_at": null
+      }
+    }
+  ]
+}

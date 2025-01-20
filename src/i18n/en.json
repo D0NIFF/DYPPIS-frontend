@@ -1,0 +1,41 @@
+{
+  "header": {
+    "search": "Search by category, platform ...",
+    "login": "LOGIN",
+    "registration": "Registration",
+    "authorization": "Authorization"
+  },
+  "footer": {
+    "copyright": "All right is defend",
+    "description": "® DYPPIS - is a trading platform / marketplace for the sale of various digital goods and services. Full or partial copying of the site materials is prohibited. All mentioned trademarks, logos, game and company names and materials are the property of their respective owners",
+    "menu": {
+      "title": "Useful information",
+      "privacy-policy": "Privacy policy",
+      "user-agreement": "User Agreement",
+      "contacts": "Contacts",
+      "api": "API",
+      "qa": "Question - Answer"
+    }
+  },
+  "button": {
+    "see-more": "See more"
+  },
+  "home": {
+    "recommendations": "Recommendations",
+    "advantages": "Our advantages",
+    "advantages-list": {
+      "support": {
+        "title": "Technical support",
+        "description": "Our team of experts is ready to answer all of your even the dumbest questions that arise in the course of purchasing an item within 2 hours!"
+      },
+      "security": {
+        "title": "Safe transaction",
+        "description": "We guarantee the correctness of the item sent to you and also it will be instantly delivered to your private office!"
+      },
+      "payment": {
+        "title": "Methods of payment",
+        "description": "On our platform you can replenish your balance with all the most popular payment systems, thereby protecting yourself from deception"
+      }
+    }
+  }
+}

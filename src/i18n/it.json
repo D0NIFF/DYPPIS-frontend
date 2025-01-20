@@ -1,0 +1,41 @@
+{
+  "header": {
+    "search": "Ricerca per categoria, piattaforma ...",
+    "login": "ACCEDI",
+    "registration": "Registrazione",
+    "authorization": "Autorizzazione"
+  },
+  "footer": {
+    "copyright": "Va bene è difendere",
+    "description": "® DYPPIS - è una piattaforma commerciale/mercato per la vendita di vari beni e servizi digitali. È vietata la copia totale o parziale dei materiali del sito. Tutti i marchi, i loghi, i nomi di giochi e società e i materiali citati sono di proprietà dei rispettivi titolari.",
+    "menu": {
+      "title": "Informazioni utili",
+      "privacy-policy": "Informativa sulla privacy",
+      "user-agreement": "Accordo con l'utente",
+      "contacts": "Contatti",
+      "api": "API",
+      "qa": "Domanda - Risposta"
+    }
+  },
+  "button": {
+    "see-more": "Per saperne di più"
+  },
+  "home": {
+    "recommendations": "Raccomandazioni",
+    "advantages": "I nostri vantaggi",
+    "advantages-list": {
+      "support": {
+        "title": "Supporto tecnico",
+        "description": "Il nostro team di esperti è pronto a rispondere a tutte le vostre domande, anche le più stupide, che sorgono durante l'acquisto di un articolo entro 2 ore!"
+      },
+      "security": {
+        "title": "Transazione sicura",
+        "description": "Garantiamo la correttezza dell'articolo inviato e sarà anche consegnato istantaneamente al tuo ufficio privato!"
+      },
+      "payment": {
+        "title": "Metodi di pagamento",
+        "description": "Sulla nostra piattaforma puoi ricaricare il tuo saldo con tutti i sistemi di pagamento più popolari, proteggendoti così dagli inganni."
+      }
+    }
+  }
+}

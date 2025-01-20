@@ -1,0 +1,41 @@
+{
+  "header": {
+    "search": "Suche nach Kategorie, Plattform ...",
+    "login": "LOGIN",
+    "registration": "Registrierung",
+    "authorization": "Autorisierung"
+  },
+  "footer": {
+    "copyright": "In Ordnung ist verteidigen",
+    "description": "® DYPPIS - ist eine Handelsplattform / Marktplatz für den Verkauf von verschiedenen digitalen Waren und Dienstleistungen. Das vollständige oder teilweise Kopieren der Website-Materialien ist verboten. Alle erwähnten Marken, Logos, Spiel- und Firmennamen und Materialien sind Eigentum der jeweiligen Inhaber",
+    "menu": {
+      "title": "Nützliche Informationen",
+      "privacy-policy": "Datenschutzbestimmungen",
+      "user-agreement": "Nutzungsvertrag",
+      "contacts": "Kontakte",
+      "api": "API",
+      "qa": "Frage - Antwort"
+    }
+  },
+  "button": {
+    "see-more": "Mehr sehen"
+  },
+  "home": {
+    "recommendations": "Empfehlungen",
+    "advantages": "Unsere Vorteile",
+    "advantages-list": {
+      "support": {
+        "title": "Technischer Support",
+        "description": "Unser Expertenteam ist bereit, alle Ihre selbst die dümmsten Fragen, die beim Kauf eines Artikels aufkommen, innerhalb von 2 Stunden zu beantworten!"
+      },
+      "security": {
+        "title": "Sichere Transaktion",
+        "description": "Wir garantieren die Richtigkeit des an Sie gesendeten Artikels und er wird auch sofort an Ihr Privatbüro geliefert!"
+      },
+      "payment": {
+        "title": "Zahlungsmethoden",
+        "description": "Auf unserer Plattform können Sie Ihr Guthaben mit allen gängigsten Zahlungssystemen aufladen und sich so vor Betrug schützen."
+      }
+    }
+  }
+}
