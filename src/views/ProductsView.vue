@@ -131,9 +131,21 @@ export default {
             updated_at: null
           }
         }
-      ]
+      ],
+      platform: []
     }
   },
+  methods: {
+    async fetchMoreData() {
+      const response = await fetch(`${this.url}?perPage=${this.itemsPerPage}&page=${this.currentPage}`);
+      const data = await response.json();
+      return data.data;
+    },
+  },
+  mounted()
+  {
+
+  }
 }
 </script>
 
