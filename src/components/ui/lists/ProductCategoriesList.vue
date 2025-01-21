@@ -10,9 +10,8 @@
       >
         <img
           :src="`${category.image.category.url}/${category.image.file_name}`"
-          :alt="category.title[currentLang]"
         />
-        <p>{{ category.title[currentLang] }}</p>
+        <p>{{ category.title[getLang()] }}</p>
       </a>
     </div>
     <button @click="next" class="carousel-button">→</button>
@@ -30,8 +29,7 @@ export default {
   data() {
     return {
       currentIndex: 0,
-      itemsToShow: this.calculateItemsToShow(), // Вычисляем количество элементов
-      currentLang: this.getLang(), // Текущий язык
+      itemsToShow: this.calculateItemsToShow(),
     };
   },
   computed: {
@@ -40,61 +38,52 @@ export default {
     },
   },
   watch: {
-    currentLang(newLang, oldLang) {
-      if (newLang !== oldLang) {
-        this.updateCategories();
-      }
+    getLang: {
+      handler() {
+        this.updateCategories()
+      },
+      immediate: true,
     },
   },
   methods: {
+    async fetchMoreData() {
+      const response = await fetch(`${this.url}?perPage=${this.itemsPerPage}&page=${this.currentPage}`);
+      const data = await response.json();
+      return data.data;
+    },
     next() {
       const container = this.$refs.carouselContainer;
       const scrollAmount = container.offsetWidth / this.itemsToShow;
       container.scrollLeft += scrollAmount;
+      this.currentIndex++;
     },
     prev() {
       const container = this.$refs.carouselContainer;
       const scrollAmount = container.offsetWidth / this.itemsToShow;
       container.scrollLeft -= scrollAmount;
-    },
-    handleScroll(event) {
-      const container = this.$refs.carouselContainer;
-      const scrollAmount = container.offsetWidth / this.itemsToShow;
-      if (event.deltaY > 0) {
-        container.scrollLeft += scrollAmount;
-      } else {
-        container.scrollLeft -= scrollAmount;
-      }
-      event.preventDefault();
+      this.currentIndex--;
     },
     calculateItemsToShow() {
       const containerWidth = window.innerWidth;
-      return Math.floor(containerWidth / 200); // Предполагаемая ширина одного элемента - 200px
-    },
-    updateCategories() {
-      this.data.forEach((item) => {
-        item.title = JSON.parse(item.title);
-      });
+      return Math.floor(containerWidth / 200);
     },
     getLang() {
-      return localStorage.getItem('lang');
+      return localStorage.getItem('lang') || 'en';
     },
-    updateItemsToShow() {
-      this.itemsToShow = this.calculateItemsToShow();
+    updateCategories() {
+      // this.data.forEach((item) => {
+      //   item.title = JSON.parse(item.title);
+      // });s
     },
   },
   mounted() {
-    window.addEventListener('resize', this.updateItemsToShow);
-    this.updateItemsToShow();
-    this.$watch(
-      () => localStorage.getItem('lang'),
-      (newLang) => {
-        this.currentLang = newLang;
-      }
-    );
+    window.addEventListener('resize', this.updateCategories);
+    this.data.forEach((item) => {
+      item.title = JSON.parse(item.title);
+    })
   },
   beforeDestroy() {
-    window.removeEventListener('resize', this.updateItemsToShow);
+    window.removeEventListener('resize', this.updateCategories);
   },
 };
 </script>
@@ -130,7 +119,9 @@ export default {
   font-weight: 600;
   color: white;
 }
-.carousel-item img { width: 25px; }
+.carousel-item img {
+  width: 25px;
+}
 .carousel-button {
   cursor: pointer;
 }
