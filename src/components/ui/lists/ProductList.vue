@@ -86,11 +86,16 @@ export default {
       type: String,
       required: false,
     },
+    url: {
+      type: String,
+      required: false,
+      default: `${API_BASE_URL}/products`
+    }
   },
   methods: {
     async parseProducts() {
       try {
-        const response = await fetch(`${API_BASE_URL}/products?perPage=${this.pageCount}&page=${this.currentPage}`, {
+        const response = await fetch(`${this.url}?perPage=${this.pageCount}&page=${this.currentPage}`, {
           method: 'GET',
           headers: {
             'Content-type': 'application/json; charset=UTF-8',
