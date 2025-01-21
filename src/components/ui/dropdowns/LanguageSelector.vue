@@ -10,12 +10,12 @@
     </div>
     <div v-if="dropdownOpen" class="dropdown-menu">
       <div
-        v-for="(lang, code) in languages"
+        v-for="(lang, code) in filteredLanguages"
         :key="code"
         @click="changeLanguage(code)"
         class="dropdown-item"
       >
-        <img :src="`/images/flags/flag-${code}.svg`" :alt="lang" class="flag" /> {{ lang }}
+        <img :src="`/images/flags/flag-${code}.svg`" :alt="lang" class="flag"/> {{ lang }}
       </div>
     </div>
   </div>
@@ -37,6 +37,14 @@ export default {
         ru: 'RU',
       },
     }
+  },
+  computed: {
+    filteredLanguages() {
+      const { selectedLang, languages } = this;
+      return Object.fromEntries(
+        Object.entries(languages).filter(([code]) => code !== selectedLang)
+      );
+    },
   },
   methods: {
     toggleDropdown() {
