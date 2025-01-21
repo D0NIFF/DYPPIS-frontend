@@ -33,6 +33,11 @@ export default {
       type: Boolean,
       default: false,
     },
+    url: {
+      type: String,
+      required: false,
+      default: `${API_BASE_URL}/platform-types/software/platforms`
+    }
   },
   data() {
     return {
@@ -61,7 +66,7 @@ export default {
       this.hasMore = newData.length > 0;
     },
     async fetchMoreData() {
-      const response = await fetch(`${API_BASE_URL}/platform-types/software/platforms?perPage=${this.itemsPerPage}&page=${this.currentPage}`);
+      const response = await fetch(`${this.url}?perPage=${this.itemsPerPage}&page=${this.currentPage}`);
       const data = await response.json();
       return data.data;
     },
