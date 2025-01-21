@@ -4,6 +4,7 @@ import PlatformList from '@/components/ui/lists/PlatformList.vue'
 import ProductList from '@/components/ui/lists/ProductList.vue'
 import InfoCardList from '@/components/ui/lists/InfoCardList.vue'
 import BlockHeader from '@/components/ui/elements/BlockHeader.vue'
+import {API_BASE_URL} from '@/config.js'
 </script>
 
 <template>
@@ -11,7 +12,7 @@ import BlockHeader from '@/components/ui/elements/BlockHeader.vue'
     <Carousel :images="images" :autoPlay="true"></Carousel>
   </div>
   <div class="platforms-list">
-    <PlatformList :data="platformCards" />
+    <PlatformList :url="`${API_BASE_URL}/platform-types/software/platforms`" />
   </div>
   <div class="products-head">
     <BlockHeader :image="'/images/icons/recommendations-icon.svg'">
@@ -19,7 +20,7 @@ import BlockHeader from '@/components/ui/elements/BlockHeader.vue'
     </BlockHeader>
   </div>
   <div class="products-list">
-    <ProductList />
+    <ProductList :url="`${API_BASE_URL}/products`" />
   </div>
 
   <div class="info-cards-head">
@@ -44,7 +45,6 @@ export default {
         '/images/banners/preview4.jpeg',
         '/images/banners/banner1.jpg',
       ],
-      platformCards: [], // TODO: Here should be API request
       advantagesCards: this.getAdvantagesCards(),
     }
   },
